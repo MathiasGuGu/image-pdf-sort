@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { Upload } from 'lucide-svelte';
+	import { Upload, X } from 'lucide-svelte';
 	import { getFileContext } from '$lib/fileContext.svelte';
+	import Button from './ui/button/button.svelte';
 
 	const fileContext = getFileContext();
 
@@ -91,14 +92,15 @@
 						<img src={getImagePreview(file)} alt={file.name} class="size-full object-cover" />
 					</div>
 
-					<button
+					<Button
 						type="button"
+						variant="destructive"
 						class="absolute -top-2 -right-2 flex size-6 items-center justify-center rounded-full bg-red-500 text-white opacity-0 shadow-md transition-opacity group-hover:opacity-100 hover:bg-red-600"
 						onclick={() => removeFile(index)}
 						aria-label="Remove {file.name}"
 					>
-						<span class="text-sm font-bold">×</span>
-					</button>
+							<X />
+				</Button>
 
 					<p class="mt-1 truncate text-xs text-zinc-600" title={file.name}>
 						{file.name}
