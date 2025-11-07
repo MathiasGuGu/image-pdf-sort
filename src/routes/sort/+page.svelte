@@ -4,7 +4,7 @@
 	import { getFileContext } from '$lib/fileContext.svelte';
 	import SortableImage from '$lib/components/SortableImage.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
-	import { ArrowLeft, FileCheck, Download } from 'lucide-svelte';
+	import { ArrowLeft, FileCheck, LoaderCircle } from 'lucide-svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import jsPDF from 'jspdf';
 
@@ -141,7 +141,7 @@
 
 		<Button disabled={!isOrderComplete() || isExporting} onclick={handleExport}>
 			{#if isExporting}
-				<Download class="mr-2 animate-spin" size={20} />
+				<LoaderCircle class="mr-2 animate-spin" size={20} />
 				Generating PDF...
 			{:else}
 				<FileCheck class="mr-2" size={20} />
